@@ -1,0 +1,20 @@
+on:
+    push:
+        branches:
+            - main
+            - release/*
+jobs:
+    my_job:
+        name: deploy to staging
+        runs-on: ubuntu-22.04
+        steps:
+            - uses: actions/checkout@v1
+            - name: IPFS Pinata deploy GitHub action
+              uses: popovoleksandr/ipfs-pinata-deploy-action@v1.6.3
+              with:
+                    path: 'IPFS-command.png'
+                    pin-name: 'IPFS-command.png'
+                    pinata-api-key: "90ec56e3fd66242ce8d5"
+                    pinata-secret-api-key: "QmPS8XMKg2A3G8M3ajZPDdX3D2WygRPiTLEv6zA3mSmEcz"
+                    remove-old: false
+                    verbose: false
